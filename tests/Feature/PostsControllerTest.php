@@ -14,6 +14,6 @@ class PostsControllerTest extends TestCase
     {
         $response = $this->get(route('post.index'));
 
-        $response->assertStatus(200)->assertViewIs('index');
+        $response->assertStatus(400)->assertViewIs('index');
     }
 }
