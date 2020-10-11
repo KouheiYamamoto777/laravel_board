@@ -1,0 +1,53 @@
+.container {
+    width: 1000px;
+    margin: 20px auto;
+}
+
+.container > .contents {
+    width: 850px;
+}
+
+.form {
+    width: 400px;
+    margin: 5px auto;
+}
+
+.form > p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+h3 {
+    text-align: center;
+}
+
+input[type='text'], textarea {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 4px;
+}
+
+textarea {
+    height: 120px;
+}
+
+.error {
+    font-size: 12px;
+    color: orangered;
+}
+
+.contents ol {
+    margin: 10px;
+}
+
+.title {
+    border-bottom: solid 2px #ddd;
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+.pagination {
+    text-align: center;
+}
