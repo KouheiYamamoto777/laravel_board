@@ -12,7 +12,6 @@ jobs:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
           - vendor
-      - run: npm install
       - restore_cache:
           key: npm-v1-{{ checksum "package-lock.json" }}
       - run:
