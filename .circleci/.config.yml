@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run: composer install -n --prefer-dist
-      - run: npm install
       - run: npm ci
+      - run: npm run dev
       - run:
-          name: php test
-          command: vendor/bin/phpunit
+        name: php test
+        command: vendor/bin/phpunit
