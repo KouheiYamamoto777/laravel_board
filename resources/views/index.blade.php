@@ -17,9 +17,9 @@
 @endsection
 
 @section('paginate')
-    <div class="pagination">
+    {{-- <div class="pagination">
         {{ $posts->links() }}
-    </div>
+    </div> --}}
 @endsection
 
 @section('form')
