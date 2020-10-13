@@ -12,7 +12,7 @@ class PostsController extends Controller
     public function index()
     {
         // $posts = DB::table('posts')->get();
-        $posts = DB::table('posts')->simplePaginate(25);
+        $posts = DB::table('posts')->get();
         return view('index', compact('posts'));
     }
 
