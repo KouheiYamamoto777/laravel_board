@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title">Laravel_BBs</h1>
+            <h1 class="title">laravel-bbs</h1>
         </div>
         <div class="contents">
             @yield('contents')
