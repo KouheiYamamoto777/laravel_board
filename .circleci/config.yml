@@ -1,4 +1,8 @@
 version: 2.1
+executors:
+    my-executor:
+      docker:
+        - image: circleci/php:7.3-node-browsers
 jobs:
   build:
     docker:
@@ -91,6 +95,16 @@ jobs:
             --application-name laravel-bbs \
             --deployment-group-name laravel-bbs \
             --s3-location bucket=${AWS_S3_BUCKET_NAME},key=laravel_board.zip,bundleType=zip
+  deploy_tmp:
+    executor: my-executor
+    steps:
+      - checkout
+      - add_ssh_keys
+      - run:
+          name: deploy to prod
+          command: |
+            echo -e "Host git-codecommit.*.amazonaws.com\n User ${AWS_SSH_KEY_ID}\n StrictHostKeyChecking no" > ${HOME}/.ssh/config
+            git push ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/laravel_board
 orbs:
   aws-cli: circleci/aws-cli@1.0.0
 
@@ -104,5 +118,12 @@ workflows:
             - build
           filters:
             branches:
+              only:
+                - master
+      - deploy_tmp:
+          requires:
+            - build
+          filters:
+            branchs:
               only:
                 - master
