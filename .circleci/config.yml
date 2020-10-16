@@ -103,8 +103,8 @@ jobs:
       - run:
           name: deploy to prod
           command: |
-            echo -e "Host git-codecommit.*.amazonaws.com\n User ${AWS_SSH_KEY_ID}\n StrictHostKeyChecking no" > ${HOME}/.ssh/config
-            git push ssh://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/laravel_bbs_code_repo
+            echo -e "Host git-codecommit.*.amazonaws.com\n   User ${AWS_SSH_KEY_ID}\n   StrictHostKeyChecking no" > ${HOME}/.ssh/config
+            git push ssh://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/laravel_bbs_codecommit_repo
 orbs:
   aws-cli: circleci/aws-cli@1.0.0
 
