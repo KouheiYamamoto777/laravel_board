@@ -96,7 +96,8 @@ jobs:
             --deployment-group-name laravel-bbs \
             --s3-location bucket=${AWS_S3_BUCKET_NAME},key=laravel_board.zip,bundleType=zip
   deploy:
-    executor: my-executor
+    docker:
+        - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
       - add_ssh_keys
