@@ -54,7 +54,7 @@ jobs:
           name: php test
           command: vendor/bin/phpunit
 
-  deploy:
+  deploy_old:
     docker:
       - image: circleci/php:7.3-node-browsers
     environment:
@@ -95,7 +95,7 @@ jobs:
             --application-name laravel-bbs \
             --deployment-group-name laravel-bbs \
             --s3-location bucket=${AWS_S3_BUCKET_NAME},key=laravel_board.zip,bundleType=zip
-  deploy_tmp:
+  deploy:
     executor: my-executor
     steps:
       - checkout
@@ -120,10 +120,10 @@ workflows:
             branches:
               only:
                 - master
-      - deploy_tmp:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
+      # - deploy_tmp:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
